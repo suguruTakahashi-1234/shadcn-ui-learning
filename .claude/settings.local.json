@@ -109,7 +109,9 @@
       "Bash(bun add:*)",
       "Bash(npm install)",
       "WebFetch(domain:bun.sh)",
-      "WebFetch(domain:knip.dev)"
+      "WebFetch(domain:knip.dev)",
+      "Bash(timeout:*)",
+      "Bash(vite build:*)"
     ],
     "deny": []
   },
