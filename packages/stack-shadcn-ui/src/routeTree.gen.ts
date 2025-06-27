@@ -9,11 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SettingsRouteImport } from './routes/settings'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PostsNewRouteImport } from './routes/posts/new'
 import { Route as PostsPostIdIndexRouteImport } from './routes/posts/$postId/index'
 import { Route as PostsPostIdEditRouteImport } from './routes/posts/$postId/edit'
 
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const PostsPostIdEditRoute = PostsPostIdEditRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/settings': typeof SettingsRoute
   '/posts/new': typeof PostsNewRoute
   '/posts/$postId/edit': typeof PostsPostIdEditRoute
   '/posts/$postId': typeof PostsPostIdIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/settings': typeof SettingsRoute
   '/posts/new': typeof PostsNewRoute
   '/posts/$postId/edit': typeof PostsPostIdEditRoute
   '/posts/$postId': typeof PostsPostIdIndexRoute
@@ -50,18 +58,30 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/settings': typeof SettingsRoute
   '/posts/new': typeof PostsNewRoute
   '/posts/$postId/edit': typeof PostsPostIdEditRoute
   '/posts/$postId/': typeof PostsPostIdIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/posts/new' | '/posts/$postId/edit' | '/posts/$postId'
+  fullPaths:
+    | '/'
+    | '/settings'
+    | '/posts/new'
+    | '/posts/$postId/edit'
+    | '/posts/$postId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/posts/new' | '/posts/$postId/edit' | '/posts/$postId'
+  to:
+    | '/'
+    | '/settings'
+    | '/posts/new'
+    | '/posts/$postId/edit'
+    | '/posts/$postId'
   id:
     | '__root__'
     | '/'
+    | '/settings'
     | '/posts/new'
     | '/posts/$postId/edit'
     | '/posts/$postId/'
@@ -69,6 +89,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  SettingsRoute: typeof SettingsRoute
   PostsNewRoute: typeof PostsNewRoute
   PostsPostIdEditRoute: typeof PostsPostIdEditRoute
   PostsPostIdIndexRoute: typeof PostsPostIdIndexRoute
@@ -76,6 +97,13 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -109,6 +137,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  SettingsRoute: SettingsRoute,
   PostsNewRoute: PostsNewRoute,
   PostsPostIdEditRoute: PostsPostIdEditRoute,
   PostsPostIdIndexRoute: PostsPostIdIndexRoute,

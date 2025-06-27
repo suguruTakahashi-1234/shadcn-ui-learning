@@ -1,10 +1,13 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
+import { Settings } from "lucide-react";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createRootRoute({
   component: (): React.ReactElement => (
-    <>
+    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
       <div className="min-h-screen bg-zinc-50 dark:bg-zinc-900">
         {/* ヘッダー */}
         <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
@@ -15,6 +18,14 @@ export const Route = createRootRoute({
             >
               ブログ管理システム (shadcn/ui)
             </Link>
+            <nav>
+              <Button asChild variant="ghost" size="icon">
+                <Link to="/settings">
+                  <Settings className="h-5 w-5" />
+                  <span className="sr-only">設定</span>
+                </Link>
+              </Button>
+            </nav>
           </div>
         </header>
 
@@ -34,6 +45,6 @@ export const Route = createRootRoute({
       </div>
       <Toaster />
       <TanStackRouterDevtools />
-    </>
+    </ThemeProvider>
   ),
 });
