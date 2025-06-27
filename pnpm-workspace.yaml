@@ -1,0 +1,7 @@
+packages:
+  - packages/*
+
+onlyBuiltDependencies:
+  - '@heroui/shared-utils'
+  - '@tailwindcss/oxide'
+  - msw

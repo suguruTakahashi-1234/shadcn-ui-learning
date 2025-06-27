@@ -1,0 +1,32 @@
+{
+  "name": "css-learning",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.12.1",
+  "engines": {
+    "node": ">=24",
+    "pnpm": ">=10"
+  },
+  "scripts": {
+    "dev": "pnpm --filter './packages/*' --parallel dev",
+    "generate": "pnpm --filter './packages/*' --parallel generate",
+    "build": "pnpm --filter './packages/*' --parallel build",
+    "typecheck": "pnpm --filter './packages/*' --parallel typecheck",
+    "test": "pnpm --filter './packages/*' --parallel test",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write",
+    "lint:fix:unsafe": "biome check --write --unsafe",
+    "verify": "pnpm run generate && pnpm run build && pnpm run typecheck && pnpm run lint && pnpm run test",
+    "mock": "prism mock ./openapi.yaml -h 0.0.0.0 -p 4010",
+    "clean": "pnpm --filter './packages/*' --parallel clean",
+    "update": "pnpm update -r"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.0.5",
+    "@stoplight/prism-cli": "^5.14.2",
+    "@types/node": "^24.0.4",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
