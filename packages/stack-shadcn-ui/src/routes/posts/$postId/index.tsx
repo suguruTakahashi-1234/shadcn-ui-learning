@@ -32,7 +32,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
 import { Skeleton } from "@/components/shadcn-ui/skeleton";
-import { useDeletePost, usePost } from "../../../hooks/api/user-posts";
+import { useDeletePost, usePost } from "../../../hooks/api/post-hooks";
 
 export const Route = createFileRoute("/posts/$postId/")({
   component: PostDetailPage,

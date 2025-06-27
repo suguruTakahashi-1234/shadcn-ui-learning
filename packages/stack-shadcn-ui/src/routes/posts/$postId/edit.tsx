@@ -4,7 +4,7 @@ import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Skeleton } from "@/components/shadcn-ui/skeleton";
 import { PostForm } from "../../../components/posts/PostForm";
 import type { components } from "../../../generated/api";
-import { usePost, useUpdatePost } from "../../../hooks/api/user-posts";
+import { usePost, useUpdatePost } from "../../../hooks/api/post-hooks";
 
 export const Route = createFileRoute("/posts/$postId/edit")({
   component: PostEditPage,

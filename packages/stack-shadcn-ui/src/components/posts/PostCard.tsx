@@ -35,7 +35,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
 import type { components } from "../../generated/api";
-import { useDeletePost } from "../../hooks/api/user-posts";
+import { useDeletePost } from "../../hooks/api/post-hooks";
 
 interface PostCardProps {
   post: components["schemas"]["Post"];
