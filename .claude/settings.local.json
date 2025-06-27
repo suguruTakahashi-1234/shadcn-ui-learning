@@ -102,7 +102,11 @@
       "mcp__playwright__browser_click",
       "mcp__playwright__browser_snapshot",
       "mcp__playwright__browser_tab_new",
-      "mcp__playwright__browser_console_messages"
+      "mcp__playwright__browser_console_messages",
+      "Bash(bun:*)",
+      "Bash(bun run:*)",
+      "Bash(bun install:*)",
+      "Bash(bun add:*)"
     ],
     "deny": []
   },

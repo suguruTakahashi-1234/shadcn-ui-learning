@@ -1,7 +1,7 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, test } from "bun:test";
 
 describe("sample test", () => {
-  it("should pass", () => {
+  test("should pass", () => {
     expect(1 + 1).toBe(2);
   });
 });

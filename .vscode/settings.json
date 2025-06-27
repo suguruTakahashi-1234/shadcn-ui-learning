@@ -29,11 +29,17 @@
   "[yaml]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
   "tailwindCSS.classFunctions": ["cva", "cx", "cn", "twMerge"],
   "tailwindCSS.experimental.classRegex": [
     ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ]
+  ],
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "bun.lock": "json5"
+  },
+  "npm.packageManager": "bun",
+  "npm.scriptRunner": "bun",
+  "debug.javascript.defaultRuntimeExecutable": {
+    "pwa-node": "bun"
+  }
 }

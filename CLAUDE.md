@@ -27,31 +27,31 @@ play /System/Library/Sounds/Frog.aiff vol 0.5
 ## Requirements
 
 - **Node.js**: v24 以上
-- **pnpm**: v10 以上
+- **bun**: 最新版
 
 ## Get Started
 
 ```bash
-pnpm install # 依存関係のインストール
-pnpm run generate # すべてのパッケージのコードを生成
-pnpm run mock # モックサーバーの起動
-pnpm run dev # 開発サーバーの起動
+bun install # 依存関係のインストール
+bun run generate # すべてのパッケージのコードを生成
+bun run mock # モックサーバーの起動
+bun run dev # 開発サーバーの起動
 
 # TODO
 ```
 ## よく使うコマンド
 ```bash
-pnpm install # 依存関係のインストール
-pnpm run dev # すべてのパッケージの開発サーバーを起動
-pnpm run generate # すべてのパッケージのコードを生成
-pnpm run build      # すべてのパッケージをビルド
-pnpm run typecheck  # すべてのパッケージの型チェック
-pnpm run test       # すべてのパッケージのテスト実行
-pnpm run lint       # Lintチェック
-pnpm run lint:fix   # Lint自動修正
-pnpm run lint:fix:unsafe        # すべてのパッケージの検証
-pnpm run verify # すべてのパッケージの検証
-pnpm run mock # モックサーバーの起動
+bun install # 依存関係のインストール
+bun run dev # すべてのパッケージの開発サーバーを起動
+bun run generate # すべてのパッケージのコードを生成
+bun run build      # すべてのパッケージをビルド
+bun run typecheck  # すべてのパッケージの型チェック
+bun run test       # すべてのパッケージのテスト実行
+bun run lint       # Lintチェック
+bun run lint:fix   # Lint自動修正
+bun run lint:fix:unsafe        # すべてのパッケージの検証
+bun run verify # すべてのパッケージの検証
+bun run mock # モックサーバーの起動
 ```
 
 ## 技術スタック
