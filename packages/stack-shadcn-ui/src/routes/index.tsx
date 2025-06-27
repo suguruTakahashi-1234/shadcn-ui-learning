@@ -4,7 +4,7 @@ import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Button } from "@/components/shadcn-ui/button";
 import { PostCard } from "../components/posts/PostCard";
 import { PostCardSkeleton } from "../components/posts/PostCardSkeleton";
-import { usePosts } from "../hooks/api/post-hooks";
+import { usePosts } from "../hooks/api/posts-api-hooks";
 
 export const Route = createFileRoute("/")({
   component: HomePage,

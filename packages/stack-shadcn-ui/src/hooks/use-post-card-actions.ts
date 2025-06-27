@@ -1,7 +1,7 @@
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import type { components } from "../generated/api";
-import { useDeletePost } from "./api/post-hooks";
+import { useDeletePost } from "./api/posts-api-hooks";
 
 /**
  * PostCardコンポーネント専用のビジネスロジックフック

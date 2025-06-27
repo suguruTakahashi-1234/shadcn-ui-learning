@@ -34,7 +34,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
 import type { components } from "../../generated/api";
-import { usePostCardActions } from "../../hooks/usePostCardActions";
+import { usePostCardActions } from "../../hooks/use-post-card-actions";
 
 interface PostCardProps {
   post: components["schemas"]["Post"];
