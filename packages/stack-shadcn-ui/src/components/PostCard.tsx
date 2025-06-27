@@ -16,26 +16,26 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
+} from "@/components/shadcn-ui/alert-dialog";
+import { Badge } from "@/components/shadcn-ui/badge";
+import { Button } from "@/components/shadcn-ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
+} from "@/components/shadcn-ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from "@/components/shadcn-ui/dropdown-menu";
 import { Spinner } from "@/components/ui/spinner";
 import type { components } from "../generated/api";
-import { useDeletePost } from "../user-posts";
+import { useDeletePost } from "../hooks/api/user-posts";
 
 interface PostCardProps {
   post: components["schemas"]["Post"];

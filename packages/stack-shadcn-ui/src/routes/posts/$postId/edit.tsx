@@ -1,10 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
+import { Skeleton } from "@/components/shadcn-ui/skeleton";
 import { PostForm } from "../../../components/PostForm";
 import type { components } from "../../../generated/api";
-import { usePost, useUpdatePost } from "../../../user-posts";
+import { usePost, useUpdatePost } from "../../../hooks/api/user-posts";
 
 export const Route = createFileRoute("/posts/$postId/edit")({
   component: PostEditPage,

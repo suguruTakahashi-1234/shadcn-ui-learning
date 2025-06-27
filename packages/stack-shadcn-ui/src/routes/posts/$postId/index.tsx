@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
-import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -19,20 +19,20 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "@/components/ui/alert-dialog";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
+} from "@/components/shadcn-ui/alert-dialog";
+import { Badge } from "@/components/shadcn-ui/badge";
+import { Button } from "@/components/shadcn-ui/button";
+import { Card, CardContent, CardHeader } from "@/components/shadcn-ui/card";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Skeleton } from "@/components/ui/skeleton";
+} from "@/components/shadcn-ui/dropdown-menu";
+import { Skeleton } from "@/components/shadcn-ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
-import { useDeletePost, usePost } from "../../../user-posts";
+import { useDeletePost, usePost } from "../../../hooks/api/user-posts";
 
 export const Route = createFileRoute("/posts/$postId/")({
   component: PostDetailPage,

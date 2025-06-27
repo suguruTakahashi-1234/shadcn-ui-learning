@@ -1,17 +1,9 @@
-/**
- * openapi-react-query クライアントの設定
- *
- * openapi-fetchクライアントをベースに、React Query用のフックを生成
- */
-
-import type { OpenapiQueryClient } from "openapi-react-query";
-import createClient from "openapi-react-query";
-import { client as fetchClient } from "./api";
+import createClient from "openapi-fetch";
+import createQueryClient from "openapi-react-query";
 import type { paths } from "./generated/api";
 
-/**
- * React Query用のAPIクライアント
- * useQuery、useMutation などのフックを自動生成
- */
-export const $api: OpenapiQueryClient<paths, "application/json"> =
-  createClient(fetchClient);
+export const fetchClient = createClient<paths>({
+  baseUrl: "http://localhost:4010",
+});
+
+export const $api = createQueryClient(fetchClient);

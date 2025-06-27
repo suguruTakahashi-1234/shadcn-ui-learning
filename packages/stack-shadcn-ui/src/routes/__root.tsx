@@ -1,9 +1,9 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import { Settings } from "lucide-react";
-import { ThemeProvider } from "@/components/theme-provider";
-import { Button } from "@/components/ui/button";
-import { Toaster } from "@/components/ui/sonner";
+import { Button } from "@/components/shadcn-ui/button";
+import { Toaster } from "@/components/shadcn-ui/sonner";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 export const Route = createRootRoute({
   component: (): React.ReactElement => (

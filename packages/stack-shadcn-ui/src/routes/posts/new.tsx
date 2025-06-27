@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { PostForm } from "../../components/PostForm";
 import type { components } from "../../generated/api";
-import { useCreatePost } from "../../user-posts";
+import { useCreatePost } from "../../hooks/api/user-posts";
 
 export const Route = createFileRoute("/posts/new")({
   component: PostCreatePage,

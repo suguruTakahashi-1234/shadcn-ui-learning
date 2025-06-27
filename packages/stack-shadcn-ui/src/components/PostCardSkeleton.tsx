@@ -1,12 +1,12 @@
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/shadcn-ui/badge";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+} from "@/components/shadcn-ui/card";
+import { Skeleton } from "@/components/shadcn-ui/skeleton";
 
 export function PostCardSkeleton(): React.ReactElement {
   return (
