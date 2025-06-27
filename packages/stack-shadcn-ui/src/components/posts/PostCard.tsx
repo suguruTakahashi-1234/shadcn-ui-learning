@@ -1,12 +1,10 @@
-import { Link, useNavigate } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import {
   CalendarIcon,
   EditIcon,
   MoreVerticalIcon,
   TrashIcon,
 } from "lucide-react";
-import { useState } from "react";
-import { toast } from "sonner";
 import { Spinner } from "@/components/common/spinner";
 import {
   AlertDialog,
@@ -35,26 +33,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
 import type { components } from "../../generated/api";
-import { useDeletePost } from "../../hooks/api/post-hooks";
+import { usePostCardActions } from "../../hooks/usePostCardActions";
 
 interface PostCardProps {
   post: components["schemas"]["Post"];
 }
 
 export function PostCard({ post }: PostCardProps): React.ReactElement {
-  const navigate = useNavigate();
-  const deletePost = useDeletePost();
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-
-  const handleDelete = async (): Promise<void> => {
-    try {
-      await deletePost.mutateAsync({ params: { path: { id: post.id } } });
-      toast.success("投稿を削除しました");
-    } catch (error) {
-      console.error("削除エラー:", error);
-      toast.error("削除に失敗しました");
-    }
-  };
+  const {
+    handleEdit,
+    handleDelete,
+    isDeleting,
+    showDeleteConfirm,
+    setShowDeleteConfirm,
+  } = usePostCardActions(post);
 
   const handleCardClick = (e: React.MouseEvent): void => {
     // ドロップダウンメニューのクリックを無視
@@ -92,10 +84,7 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
                       <DropdownMenuItem
                         onClick={(e) => {
                           e.preventDefault();
-                          navigate({
-                            to: "/posts/$postId/edit",
-                            params: { postId: post.id },
-                          });
+                          handleEdit();
                         }}
                       >
                         <EditIcon className="mr-2 h-4 w-4" />
@@ -146,15 +135,15 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel disabled={deletePost.isPending}>
+            <AlertDialogCancel disabled={isDeleting}>
               キャンセル
             </AlertDialogCancel>
             <AlertDialogAction
               onClick={handleDelete}
-              disabled={deletePost.isPending}
+              disabled={isDeleting}
               className="bg-red-600 hover:bg-red-700"
             >
-              {deletePost.isPending ? (
+              {isDeleting ? (
                 <>
                   <Spinner className="mr-2" size="sm" />
                   削除中...
