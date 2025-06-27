@@ -1,23 +1,15 @@
 # Knip report
 
-## Unused files (3)
+## Unused files (1)
 
 * knip/knip.config.ts
-* packages/stack-shadcn-ui/src/components/posts/PostCardSkeleton.tsx
-* packages/stack-shadcn-ui/src/hooks/use-form-state.ts
-
-## Unused dependencies (1)
-
-| Name                         | Location                                   | Severity |
-| :--------------------------- | :----------------------------------------- | :------- |
-| @tanstack/router-vite-plugin | packages/stack-shadcn-ui/package.json:31:6 | error    |
 
 ## Unused devDependencies (2)
 
 | Name           | Location                                   | Severity |
 | :------------- | :----------------------------------------- | :------- |
-| tw-animate-css | packages/stack-shadcn-ui/package.json:55:6 | error    |
-| tailwindcss    | packages/stack-shadcn-ui/package.json:54:6 | error    |
+| tw-animate-css | packages/stack-shadcn-ui/package.json:54:6 | error    |
+| tailwindcss    | packages/stack-shadcn-ui/package.json:53:6 | error    |
 
 ## Unresolved imports (1)
 
@@ -25,7 +17,7 @@
 | :---- | :----------------- | :------- |
 | tslib | tsconfig.base.json | error    |
 
-## Unused exports (17)
+## Unused exports (16)
 
 | Name                     | Location                                                                   | Severity |
 | :----------------------- | :------------------------------------------------------------------------- | :------- |
@@ -45,7 +37,6 @@
 | badgeVariants            | packages/stack-shadcn-ui/src/components/shadcn-ui/badge.tsx:46:16          | error    |
 | CardFooter               | packages/stack-shadcn-ui/src/components/shadcn-ui/card.tsx:86:14           | error    |
 | CardAction               | packages/stack-shadcn-ui/src/components/shadcn-ui/card.tsx:88:13           | error    |
-| fetchClient              | packages/stack-shadcn-ui/src/lib/api/client.ts:8:14                        | error    |
 
 ## Unused exported types (8)
 

@@ -5,7 +5,7 @@ import type { paths } from "@/generated/api";
 /**
  * OpenAPI Fetchクライアント
  */
-export const fetchClient = createClient<paths>({
+const fetchClient = createClient<paths>({
   baseUrl: "http://localhost:4010",
 });
 

@@ -1,9 +1,13 @@
 import type { KnipConfig } from "knip";
 
 const config: KnipConfig = {
-  // 🔧 === 共通設定 ===
-  ignoreExportsUsedInFile: false, // ファイル内で使用されているexportも検出対象
+  biome: {
+    config: ["biome.json"],
+  },
 
+  tailwind: {
+    config: ["tailwind.config.ts", "packages/*/tailwind.config.ts"],
+  },
   // 🔌 === Knipプラグイン設定 ===
   vitest: {
     config: ["vitest.config.ts", "packages/*/vitest.config.ts"],
@@ -24,6 +28,8 @@ const config: KnipConfig = {
   ignoreDependencies: [
     // 📘 TypeScript 関連
     "tslib", // tsconfig.base.json の importHelpers で自動的に使用される
+    "tw-animate-css", // Tailwind CSSのアニメーションユーティリティ - css ファイルを直接インポートするため、Knipが解決できない
+    "tailwindcss", // Tailwind CSSのユーティリティ - css ファイルを直接インポートするため、Knipが解決できない
   ],
 
   // 🔍 無視する未解決インポート（Knipのワークスペース相対パス解決の問題回避）
@@ -42,12 +48,18 @@ const config: KnipConfig = {
     "**/*.tsbuildinfo",
 
     // ⚙️ 設定・環境ファイル
-    "knip/**", // Knip関連ファイル（設定、レポート等）
-    ".husky/**",
+    "knip/**knip.config.ts", // Knipの設定ファイル
+    ".husky/**", // Huskyの設定ファイル
 
     // 🧪 マニュアルテスト関連
     "**/*.manual.test.ts",
+
+    // 🎨 UIライブラリ
+    "**/src/components/shadcn-ui/**", // shadcn-uiコンポーネントは再利用可能なUIライブラリとして保持
   ],
+
+  // 🔧 === 共通設定 ===
+  ignoreExportsUsedInFile: false, // ファイル内で使用されているexportも検出対象
 };
 
 export default config;
