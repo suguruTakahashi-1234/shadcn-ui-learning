@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Spinner } from "@/components/common/spinner";
 import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import {
   AlertDialog,
@@ -31,7 +32,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
 import { Skeleton } from "@/components/shadcn-ui/skeleton";
-import { Spinner } from "@/components/ui/spinner";
 import { useDeletePost, usePost } from "../../../hooks/api/user-posts";
 
 export const Route = createFileRoute("/posts/$postId/")({

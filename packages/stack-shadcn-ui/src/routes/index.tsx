@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileTextIcon, PlusIcon } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Button } from "@/components/shadcn-ui/button";
-import { PostCard } from "../components/PostCard";
-import { PostCardSkeleton } from "../components/PostCardSkeleton";
+import { PostCard } from "../components/posts/PostCard";
+import { PostCardSkeleton } from "../components/posts/PostCardSkeleton";
 import { usePosts } from "../hooks/api/user-posts";
 
 export const Route = createFileRoute("/")({

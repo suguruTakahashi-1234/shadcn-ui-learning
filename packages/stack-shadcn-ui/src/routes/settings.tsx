@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Monitor, Moon, Sun } from "lucide-react";
 import { useId } from "react";
+import { useTheme } from "@/components/common/theme-provider";
 import {
   Card,
   CardContent,
@@ -10,7 +11,6 @@ import {
 } from "@/components/shadcn-ui/card";
 import { Label } from "@/components/shadcn-ui/label";
 import { RadioGroup, RadioGroupItem } from "@/components/shadcn-ui/radio-group";
-import { useTheme } from "@/components/ui/theme-provider";
 
 export const Route = createFileRoute("/settings")({
   component: Settings,

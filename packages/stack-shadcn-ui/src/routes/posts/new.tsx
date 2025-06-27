@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
-import { PostForm } from "../../components/PostForm";
+import { PostForm } from "../../components/posts/PostForm";
 import type { components } from "../../generated/api";
 import { useCreatePost } from "../../hooks/api/user-posts";
 

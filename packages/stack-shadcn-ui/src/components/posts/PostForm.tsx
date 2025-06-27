@@ -10,7 +10,7 @@ import { Input } from "@/components/shadcn-ui/input";
 import { Label } from "@/components/shadcn-ui/label";
 import { Switch } from "@/components/shadcn-ui/switch";
 import { Textarea } from "@/components/shadcn-ui/textarea";
-import type { components } from "../generated/api";
+import type { components } from "../../generated/api";
 
 interface PostFormProps {
   initialData?: components["schemas"]["Post"];

@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
 import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Skeleton } from "@/components/shadcn-ui/skeleton";
-import { PostForm } from "../../../components/PostForm";
+import { PostForm } from "../../../components/posts/PostForm";
 import type { components } from "../../../generated/api";
 import { usePost, useUpdatePost } from "../../../hooks/api/user-posts";
 

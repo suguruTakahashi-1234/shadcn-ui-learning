@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Spinner } from "@/components/common/spinner";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -33,9 +34,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/shadcn-ui/dropdown-menu";
-import { Spinner } from "@/components/ui/spinner";
-import type { components } from "../generated/api";
-import { useDeletePost } from "../hooks/api/user-posts";
+import type { components } from "../../generated/api";
+import { useDeletePost } from "../../hooks/api/user-posts";
 
 interface PostCardProps {
   post: components["schemas"]["Post"];
