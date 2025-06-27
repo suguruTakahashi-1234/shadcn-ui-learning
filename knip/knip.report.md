@@ -5,19 +5,18 @@
 * packages/stack-shadcn-ui/src/components/posts/PostCardSkeleton.tsx
 * packages/stack-shadcn-ui/src/hooks/use-form-state.ts
 
-## Unused dependencies (2)
+## Unused dependencies (1)
 
 | Name                         | Location                                   | Severity |
 | :--------------------------- | :----------------------------------------- | :------- |
 | @tanstack/router-vite-plugin | packages/stack-shadcn-ui/package.json:31:6 | error    |
-| next-themes                  | packages/stack-shadcn-ui/package.json:35:6 | error    |
 
 ## Unused devDependencies (2)
 
 | Name           | Location                                   | Severity |
 | :------------- | :----------------------------------------- | :------- |
-| tw-animate-css | packages/stack-shadcn-ui/package.json:56:6 | error    |
-| tailwindcss    | packages/stack-shadcn-ui/package.json:55:6 | error    |
+| tw-animate-css | packages/stack-shadcn-ui/package.json:55:6 | error    |
+| tailwindcss    | packages/stack-shadcn-ui/package.json:54:6 | error    |
 
 ## Unused exports (17)
 

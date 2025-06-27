@@ -25,13 +25,13 @@
     "deps:check": "bunx npm-check-updates --deep",
     "deps:update": "bunx npm-check-updates -u --deep && bun install",
     "knip:check": "knip -c knip/knip.config.ts --reporter markdown",
-    "knip:check:minimal": "knip -c knip/knip.minimal.config.ts --reporter markdown",
-    "knip:report": "knip -c knip/knip.config.ts --reporter markdown > knip/knip-report.md",
-    "knip:report:minimal": "knip -c knip/knip.minimal.config.ts --reporter markdown > knip/knip-minimal-report.md",
+    "knip:report": "knip -c knip/knip.config.ts --reporter markdown > knip/knip.report.md",
+    "knip:check:default": "knip -c knip/default.knip.config.ts --reporter markdown",
+    "knip:report:default": "knip -c knip/default.knip.config.ts --reporter markdown > knip/default.knip.report.md",
     "knip:fix": "knip -c knip/knip.config.ts --fix"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.0.5",
+    "@biomejs/biome": "^2.0.6",
     "@stoplight/prism-cli": "^5.14.2",
     "knip": "^5.61.2"
   }

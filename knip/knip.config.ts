@@ -8,6 +8,8 @@ const config: KnipConfig = {
   vitest: {
     config: ["vitest.config.ts", "packages/*/vitest.config.ts"],
   },
+
+  // 📦 === ワークスペース設定 ===
   typescript: {
     config: [
       "tsconfig.base.json",
@@ -33,7 +35,6 @@ const config: KnipConfig = {
   ignore: [
     // 🤖 自動生成
     "packages/**/src/generated/**",
-    "docs/api/**",
 
     // 📦 ビルド成果物
     "**/dist/**",
