@@ -10,7 +10,10 @@ interface LoaderErrorFallbackProps {
  * TanStack Routerのloader関数でエラーが発生した際の表示コンポーネント
  * errorComponentプロパティで使用される
  */
-export function LoaderErrorFallback({ error, reset }: LoaderErrorFallbackProps): React.ReactElement {
+export function LoaderErrorFallback({
+  error,
+  reset,
+}: LoaderErrorFallbackProps): React.ReactElement {
   return (
     <div className="container mx-auto px-4 py-8">
       <Alert variant="destructive">

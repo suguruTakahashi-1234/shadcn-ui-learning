@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileTextIcon, PlusIcon } from "lucide-react";
-import { Loading } from "@/components/common/loading";
 import { LoaderErrorFallback } from "@/components/common/loader-error-fallback";
+import { Loading } from "@/components/common/loading";
 import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Button } from "@/components/shadcn-ui/button";
 import { fetchClient } from "@/lib/api/clients";
