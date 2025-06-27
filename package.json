@@ -1,5 +1,5 @@
 {
-  "name": "css-learning",
+  "name": "shadcn-ui-learning",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,17 +8,17 @@
     "node": ">=24"
   },
   "scripts": {
-    "dev": "bun --filter './packages/*' run dev",
-    "generate": "bun --filter './packages/*' run generate",
-    "build": "bun --filter './packages/*' run build",
-    "typecheck": "bun --filter './packages/*' run typecheck",
+    "dev": "bun run --filter './packages/*' dev",
+    "generate": "bun run --filter './packages/*' generate",
+    "build": "bun run --filter './packages/*' build",
+    "typecheck": "bun run --filter './packages/*' typecheck",
     "test": "bun test",
     "lint": "biome check .",
     "lint:fix": "biome check --write",
     "lint:fix:unsafe": "biome check --write --unsafe",
     "verify": "bun run generate && bun run build && bun run typecheck && bun run lint && bun run test",
     "mock": "prism mock ./openapi.yaml -h 0.0.0.0 -p 4010",
-    "clean": "bun --filter './packages/*' run clean",
+    "clean": "rm -rf node_modules bun.lock && bun run --filter './packages/*' clean",
     "deps:check": "bunx npm-check-updates --deep",
     "deps:update": "bunx npm-check-updates -u --deep && bun install"
   },

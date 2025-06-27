@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "css-learning",
+      "name": "shadcn-ui-learning",
       "devDependencies": {
         "@biomejs/biome": "^2.0.5",
         "@stoplight/prism-cli": "^5.14.2",

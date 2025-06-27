@@ -4,12 +4,13 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "jsx": "react-jsx",
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     },
-    "types": ["bun"],
 
+    "types": ["bun"],
     "isolatedDeclarations": false
   },
   "include": ["src"],
