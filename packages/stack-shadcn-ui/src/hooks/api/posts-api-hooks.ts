@@ -5,18 +5,34 @@
  * 標準的なReact Queryの使い方に従う
  */
 import { useQueryClient } from "@tanstack/react-query";
-import { $api } from "@/lib/api/client";
+import type { components } from "@/generated/api";
+import { $api } from "@/lib/api/clients";
 
 /**
  * 投稿一覧を取得するフック
  */
-export const usePosts = () => {
+export const usePosts = (options?: {
+  initialData?: components["schemas"]["Post"][];
+}) => {
+  if (options?.initialData) {
+    console.log("SSR によって初期データが提供されました:", options.initialData);
+  } else {
+    console.log("SSR による初期データは提供されていません");
+  }
+
   return $api.useQuery(
     "get",
     "/api/posts",
     {},
     {
       select: (data) => data.data, // レスポンスの階層を簡略化
+      // initialDataは、selectが適用された後の型に合わせる
+      ...(options?.initialData && {
+        initialData: {
+          data: options.initialData,
+          status: "success" as const,
+        },
+      }),
     },
   );
 };
