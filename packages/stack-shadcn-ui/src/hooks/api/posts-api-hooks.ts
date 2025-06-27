@@ -5,7 +5,7 @@
  * 標準的なReact Queryの使い方に従う
  */
 import { useQueryClient } from "@tanstack/react-query";
-import { $api } from "../../client";
+import { $api } from "@/lib/api/client";
 
 /**
  * 投稿一覧を取得するフック
