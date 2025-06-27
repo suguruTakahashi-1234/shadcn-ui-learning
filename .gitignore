@@ -3,6 +3,11 @@ node_modules/
 .pnp/
 .pnp.js
 
+# Package manager files (bun以外を防ぐ)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
 # Build outputs
 dist/
 build/

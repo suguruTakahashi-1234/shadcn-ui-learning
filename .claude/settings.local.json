@@ -106,7 +106,8 @@
       "Bash(bun:*)",
       "Bash(bun run:*)",
       "Bash(bun install:*)",
-      "Bash(bun add:*)"
+      "Bash(bun add:*)",
+      "Bash(npm install)"
     ],
     "deny": []
   },
