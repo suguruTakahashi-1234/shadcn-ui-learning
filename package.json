@@ -19,9 +19,8 @@
     "verify": "bun run generate && bun run build && bun run typecheck && bun run lint && bun run test",
     "mock": "prism mock ./openapi.yaml -h 0.0.0.0 -p 4010",
     "clean": "bun --filter './packages/*' run clean",
-    "update": "bun update",
-    "deps:check": "bunx npm-check-updates",
-    "deps:update": "bunx npm-check-updates -u && bun install"
+    "deps:check": "bunx npm-check-updates --deep",
+    "deps:update": "bunx npm-check-updates -u --deep && bun install"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.5",
