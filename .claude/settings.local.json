@@ -107,7 +107,8 @@
       "Bash(bun run:*)",
       "Bash(bun install:*)",
       "Bash(bun add:*)",
-      "Bash(npm install)"
+      "Bash(npm install)",
+      "WebFetch(domain:bun.sh)"
     ],
     "deny": []
   },
