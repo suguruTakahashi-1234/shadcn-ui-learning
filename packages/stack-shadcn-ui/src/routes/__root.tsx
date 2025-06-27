@@ -1,7 +1,5 @@
 import { createRootRoute, Link, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { PenSquareIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createRootRoute({
@@ -17,14 +15,6 @@ export const Route = createRootRoute({
             >
               ブログ管理システム (shadcn/ui)
             </Link>
-            <nav>
-              <Button asChild size="sm">
-                <Link to="/posts/new">
-                  <PenSquareIcon className="mr-2 h-4 w-4" />
-                  新規投稿
-                </Link>
-              </Button>
-            </nav>
           </div>
         </header>
 
