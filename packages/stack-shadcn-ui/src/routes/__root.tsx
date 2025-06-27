@@ -1,6 +1,6 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { ErrorBoundary } from "@/components/common/error-boundary";
+import { RuntimeErrorBoundary } from "@/components/common/runtime-error-boundary";
 import { ThemeProvider } from "@/components/common/theme-provider";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
@@ -14,9 +14,9 @@ export const Route = createRootRoute({
 
         {/* メインコンテンツ */}
         <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <ErrorBoundary>
+          <RuntimeErrorBoundary>
             <Outlet />
-          </ErrorBoundary>
+          </RuntimeErrorBoundary>
         </main>
 
         <Footer />

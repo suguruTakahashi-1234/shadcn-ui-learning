@@ -17,7 +17,11 @@ interface State {
   error: Error | null;
 }
 
-export class ErrorBoundary extends Component<Props, State> {
+/**
+ * Reactコンポーネントのランタイムエラーをキャッチするエラーバウンダリ
+ * 予期せぬエラーが発生した際に、アプリケーション全体のクラッシュを防ぐ
+ */
+export class RuntimeErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = { hasError: false, error: null };
@@ -28,7 +32,7 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   override componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    console.error("エラーバウンダリーでキャッチ:", error, errorInfo);
+    console.error("ランタイムエラーバウンダリーでキャッチ:", error, errorInfo);
   }
 
   handleReset = (): void => {
