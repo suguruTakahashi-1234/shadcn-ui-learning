@@ -5,6 +5,7 @@ import {
   MoreVerticalIcon,
   TrashIcon,
 } from "lucide-react";
+import { useState } from "react";
 import { Spinner } from "@/components/common/spinner";
 import {
   AlertDialog,
@@ -40,13 +41,8 @@ interface PostCardProps {
 }
 
 export function PostCard({ post }: PostCardProps): React.ReactElement {
-  const {
-    handleEdit,
-    handleDelete,
-    isDeleting,
-    showDeleteConfirm,
-    setShowDeleteConfirm,
-  } = usePostCardActions(post);
+  const { handleEdit, handleDelete, isDeleting } = usePostCardActions(post);
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const handleCardClick = (e: React.MouseEvent): void => {
     // ドロップダウンメニューのクリックを無視
@@ -139,7 +135,10 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
               キャンセル
             </AlertDialogCancel>
             <AlertDialogAction
-              onClick={handleDelete}
+              onClick={async () => {
+                await handleDelete();
+                setShowDeleteConfirm(false);
+              }}
               disabled={isDeleting}
               className="bg-red-600 hover:bg-red-700"
             >

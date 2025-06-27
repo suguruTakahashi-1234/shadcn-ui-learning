@@ -1,17 +1,15 @@
 import { useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
 import { toast } from "sonner";
 import type { components } from "../generated/api";
 import { useDeletePost } from "./api/post-hooks";
 
 /**
- * PostCardコンポーネント専用のアクションフック
- * 削除・編集などのビジネスロジックを集約
+ * PostCardコンポーネント専用のビジネスロジックフック
+ * API通信、ナビゲーション、エラーハンドリングを担当
  */
 export function usePostCardActions(post: components["schemas"]["Post"]) {
   const navigate = useNavigate();
   const deletePost = useDeletePost();
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   const handleEdit = (): void => {
     navigate({
@@ -34,7 +32,5 @@ export function usePostCardActions(post: components["schemas"]["Post"]) {
     handleEdit,
     handleDelete,
     isDeleting: deletePost.isPending,
-    showDeleteConfirm,
-    setShowDeleteConfirm,
   };
 }
