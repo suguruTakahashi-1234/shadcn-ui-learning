@@ -7,6 +7,9 @@
   "engines": {
     "node": ">=24"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "dev": "bun run --filter './packages/*' dev",
     "generate": "bun run --filter './packages/*' generate",
@@ -24,8 +27,6 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.5",
-    "@stoplight/prism-cli": "^5.14.2",
-    "@types/node": "^24.0.4",
-    "typescript": "^5.8.3"
+    "@stoplight/prism-cli": "^5.14.2"
   }
 }
