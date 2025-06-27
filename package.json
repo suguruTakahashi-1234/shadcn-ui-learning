@@ -23,10 +23,16 @@
     "mock": "prism mock ./openapi.yaml -h 0.0.0.0 -p 4010",
     "clean": "rm -rf node_modules bun.lock && bun run --filter './packages/*' clean",
     "deps:check": "bunx npm-check-updates --deep",
-    "deps:update": "bunx npm-check-updates -u --deep && bun install"
+    "deps:update": "bunx npm-check-updates -u --deep && bun install",
+    "knip:check": "knip -c knip/knip.config.ts --reporter markdown",
+    "knip:check:minimal": "knip -c knip/knip.minimal.config.ts --reporter markdown",
+    "knip:report": "knip -c knip/knip.config.ts --reporter markdown > knip/knip-report.md",
+    "knip:report:minimal": "knip -c knip/knip.minimal.config.ts --reporter markdown > knip/knip-minimal-report.md",
+    "knip:fix": "knip -c knip/knip.config.ts --fix"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.0.5",
-    "@stoplight/prism-cli": "^5.14.2"
+    "@stoplight/prism-cli": "^5.14.2",
+    "knip": "^5.61.2"
   }
 }
