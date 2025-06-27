@@ -1,9 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { FileTextIcon, PlusIcon } from "lucide-react";
+import { Loading } from "@/components/common/loading";
 import { Alert, AlertDescription } from "@/components/shadcn-ui/alert";
 import { Button } from "@/components/shadcn-ui/button";
 import { PostCard } from "../components/posts/PostCard";
-import { PostCardSkeleton } from "../components/posts/PostCardSkeleton";
 import { usePosts } from "../hooks/api/posts-api-hooks";
 
 export const Route = createFileRoute("/")({
@@ -28,12 +28,11 @@ function HomePage(): React.ReactElement {
           </Button>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {[...Array(6)].map((_, i) => (
-            // biome-ignore lint/suspicious/noArrayIndexKey: スケルトンは静的要素のため問題なし
-            <PostCardSkeleton key={i} />
-          ))}
-        </div>
+        <Loading
+          size="lg"
+          text="投稿を読み込んでいます..."
+          className="min-h-[400px]"
+        />
       </div>
     );
   }

@@ -1,4 +1,6 @@
-import { useEffect, useId, useState } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useEffect, useId } from "react";
+import { type SubmitHandler, useForm } from "react-hook-form";
 import { Button } from "@/components/shadcn-ui/button";
 import {
   Card,
@@ -10,11 +12,12 @@ import { Input } from "@/components/shadcn-ui/input";
 import { Label } from "@/components/shadcn-ui/label";
 import { Switch } from "@/components/shadcn-ui/switch";
 import { Textarea } from "@/components/shadcn-ui/textarea";
+import { type PostFormData, postFormSchema } from "@/lib/validations/post";
 import type { components } from "../../generated/api";
 
 interface PostFormProps {
   initialData?: components["schemas"]["Post"];
-  onSubmit: (data: components["schemas"]["CreatePost"]) => Promise<void>;
+  onSubmit: (data: PostFormData) => Promise<void>;
   isSubmitting: boolean;
 }
 
@@ -26,29 +29,36 @@ export function PostForm({
   const titleId = useId();
   const contentId = useId();
   const publishedId = useId();
-  const [formData, setFormData] = useState<components["schemas"]["CreatePost"]>(
-    {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    watch,
+  } = useForm<PostFormData>({
+    resolver: zodResolver(postFormSchema),
+    defaultValues: {
       title: "",
       content: "",
       userId: "clh1234567890abcdef", // 仮のユーザーID
       published: false,
     },
-  );
+  });
+
+  const publishedValue = watch("published");
 
   useEffect(() => {
     if (initialData) {
-      setFormData({
-        title: initialData.title,
-        content: initialData.content,
-        userId: initialData.userId,
-        published: initialData.published,
-      });
+      setValue("title", initialData.title);
+      setValue("content", initialData.content);
+      setValue("userId", initialData.userId);
+      setValue("published", initialData.published);
     }
-  }, [initialData]);
+  }, [initialData, setValue]);
 
-  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
-    e.preventDefault();
-    await onSubmit(formData);
+  const onFormSubmit: SubmitHandler<PostFormData> = async (data) => {
+    await onSubmit(data);
   };
 
   return (
@@ -57,33 +67,37 @@ export function PostForm({
         <CardTitle>{initialData ? "記事を編集" : "新規記事作成"}</CardTitle>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit(onFormSubmit)} className="space-y-6">
           <div className="space-y-2">
             <Label htmlFor={titleId}>タイトル</Label>
             <Input
               type="text"
               id={titleId}
-              value={formData.title}
-              onChange={(e) =>
-                setFormData({ ...formData, title: e.target.value })
-              }
-              required
+              {...register("title")}
               placeholder="記事のタイトルを入力"
+              aria-invalid={!!errors.title}
             />
+            {errors.title && (
+              <p className="text-sm text-red-600 dark:text-red-400">
+                {errors.title.message}
+              </p>
+            )}
           </div>
 
           <div className="space-y-2">
             <Label htmlFor={contentId}>本文</Label>
             <Textarea
               id={contentId}
-              value={formData.content}
-              onChange={(e) =>
-                setFormData({ ...formData, content: e.target.value })
-              }
-              required
+              {...register("content")}
               rows={10}
               placeholder="記事の内容を入力"
+              aria-invalid={!!errors.content}
             />
+            {errors.content && (
+              <p className="text-sm text-red-600 dark:text-red-400">
+                {errors.content.message}
+              </p>
+            )}
           </div>
 
           <div className="flex items-center justify-between space-x-2">
@@ -93,16 +107,14 @@ export function PostForm({
             <div className="flex items-center space-x-2">
               <Switch
                 id={publishedId}
-                checked={formData.published}
-                onCheckedChange={(checked) =>
-                  setFormData({ ...formData, published: checked })
-                }
+                checked={publishedValue}
+                onCheckedChange={(checked) => setValue("published", checked)}
               />
               <Label
                 htmlFor={publishedId}
                 className="text-sm font-normal cursor-pointer"
               >
-                {formData.published ? "公開" : "下書き"}
+                {publishedValue ? "公開" : "下書き"}
               </Label>
             </div>
           </div>

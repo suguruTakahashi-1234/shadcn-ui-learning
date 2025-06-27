@@ -1,7 +1,7 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { toast } from "sonner";
+import type { PostFormData } from "@/lib/validations/post";
 import { PostForm } from "../../components/posts/PostForm";
-import type { components } from "../../generated/api";
 import { useCreatePost } from "../../hooks/api/posts-api-hooks";
 
 export const Route = createFileRoute("/posts/new")({
@@ -12,9 +12,7 @@ function PostCreatePage(): React.ReactElement {
   const navigate = useNavigate();
   const createPost = useCreatePost();
 
-  const handleSubmit = async (
-    data: components["schemas"]["CreatePost"],
-  ): Promise<void> => {
+  const handleSubmit = async (data: PostFormData): Promise<void> => {
     try {
       await createPost.mutateAsync({ body: data });
       toast.success("投稿を作成しました");

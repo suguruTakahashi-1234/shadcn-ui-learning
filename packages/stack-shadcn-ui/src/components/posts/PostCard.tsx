@@ -6,17 +6,7 @@ import {
   TrashIcon,
 } from "lucide-react";
 import { useState } from "react";
-import { Spinner } from "@/components/common/spinner";
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-} from "@/components/shadcn-ui/alert-dialog";
+import { ConfirmDialog } from "@/components/common/confirm-dialog";
 import { Badge } from "@/components/shadcn-ui/badge";
 import { Button } from "@/components/shadcn-ui/button";
 import {
@@ -121,39 +111,24 @@ export function PostCard({ post }: PostCardProps): React.ReactElement {
       </div>
 
       {/* 削除確認ダイアログ */}
-      <AlertDialog open={showDeleteConfirm} onOpenChange={setShowDeleteConfirm}>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>投稿を削除しますか？</AlertDialogTitle>
-            <AlertDialogDescription>
-              「{post.title}
-              」を削除してもよろしいですか？この操作は取り消せません。
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel disabled={isDeleting}>
-              キャンセル
-            </AlertDialogCancel>
-            <AlertDialogAction
-              onClick={async () => {
-                await handleDelete();
-                setShowDeleteConfirm(false);
-              }}
-              disabled={isDeleting}
-              className="bg-red-600 hover:bg-red-700"
-            >
-              {isDeleting ? (
-                <>
-                  <Spinner className="mr-2" size="sm" />
-                  削除中...
-                </>
-              ) : (
-                "削除"
-              )}
-            </AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
+      <ConfirmDialog
+        open={showDeleteConfirm}
+        onOpenChange={setShowDeleteConfirm}
+        title="投稿を削除しますか？"
+        description={
+          <>
+            「{post.title}
+            」を削除してもよろしいですか？この操作は取り消せません。
+          </>
+        }
+        confirmText="削除"
+        onConfirm={async () => {
+          await handleDelete();
+          setShowDeleteConfirm(false);
+        }}
+        isLoading={isDeleting}
+        variant="destructive"
+      />
     </>
   );
 }
