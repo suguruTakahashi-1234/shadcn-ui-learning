@@ -32,38 +32,14 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        // 推奨: 機能ベースの分割
         manualChunks: (id) => {
-          // 1. 必須の基盤（すぐに必要）
-          if (id.includes("react") || id.includes("react-dom")) {
-            return "react-core";
-          }
+          if (!id.includes("node_modules")) return;
 
-          // 2. ルーティング（初期表示に必要）
-          if (id.includes("@tanstack/react-router")) {
-            return "router";
-          }
+          // React関連
+          if (id.includes("react")) return "framework";
 
-          // 3. 大きなライブラリを個別に
-          if (id.includes("react-hook-form") || id.includes("@hookform")) {
-            return "forms";
-          }
-          if (id.includes("@tanstack/react-query")) {
-            return "data-fetching";
-          }
-          if (id.includes("zod")) {
-            return "validation";
-          }
-
-          // 4. UIコンポーネント（遅延可能）
-          if (id.includes("@radix-ui") || id.includes("lucide-react")) {
-            return "ui-components";
-          }
-
-          // 5. その他のvendor
-          if (id.includes("node_modules")) {
-            return "vendor";
-          }
+          // すべてのvendor
+          return "vendor";
         },
       },
     },
