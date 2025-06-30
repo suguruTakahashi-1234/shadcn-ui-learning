@@ -22,7 +22,8 @@ export const Route = createRootRoute({
         <Footer />
       </div>
       <Toaster />
-      <TanStackRouterDevtools />
+      {/* 本番環境では表示しない */}
+      {!import.meta.env.PROD && <TanStackRouterDevtools />}
     </ThemeProvider>
   ),
 });

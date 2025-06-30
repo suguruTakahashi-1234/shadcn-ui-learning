@@ -112,7 +112,8 @@
       "WebFetch(domain:knip.dev)",
       "Bash(timeout:*)",
       "Bash(vite build:*)",
-      "WebFetch(domain:vite.dev)"
+      "WebFetch(domain:vite.dev)",
+      "WebFetch(domain:ja.vite.dev)"
     ],
     "deny": []
   },
